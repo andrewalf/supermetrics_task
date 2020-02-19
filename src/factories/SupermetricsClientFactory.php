@@ -3,7 +3,7 @@
 namespace App\Factories;
 
 use App\Api\SupermetricsClient;
-use App\Exceptions\SupermaticsApiException;
+use App\Exceptions\SupermetricsApiException;
 use GuzzleHttp\Client;
 
 class SupermetricsClientFactory
@@ -11,7 +11,7 @@ class SupermetricsClientFactory
     public static function getClient(string $baseUrl): SupermetricsClient
     {
         if (empty($baseUrl)) {
-            throw new SupermaticsApiException('Empty base url for api is not allowed');
+            throw new SupermetricsApiException('Empty base url for api is not allowed');
         }
 
         $client = new Client([

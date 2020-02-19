@@ -3,7 +3,7 @@
 namespace App\Commands;
 
 use App\Factories\SupermetricsClientFactory;
-use App\Exceptions\SupermaticsApiException;
+use App\Exceptions\SupermetricsApiException;
 
 class TokenCommand implements Command
 {
@@ -14,7 +14,7 @@ class TokenCommand implements Command
         $name = env('CLIENT_NAME');
 
         if (empty($id) || empty($email) || empty($name)) {
-            throw new SupermaticsApiException('Invalid input. All params are required');
+            throw new SupermetricsApiException('Invalid input. All params are required');
         }
 
         $client = SupermetricsClientFactory::getClient(env('API_BASE_URL'));

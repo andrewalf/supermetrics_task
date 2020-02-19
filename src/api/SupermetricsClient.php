@@ -2,7 +2,7 @@
 
 namespace App\Api;
 
-use App\Exceptions\SupermaticsApiException;
+use App\Exceptions\SupermetricsApiException;
 use GuzzleHttp\Client;
 
 class SupermetricsClient
@@ -27,7 +27,7 @@ class SupermetricsClient
         $token = $content['data']['sl_token'] ?? null;
 
         if (!$token) {
-            throw new SupermaticsApiException('Empty token. Check API health status');
+            throw new SupermetricsApiException('Empty token. Check API health status');
         }
 
         return $token;
@@ -47,7 +47,7 @@ class SupermetricsClient
         $posts = $content['data']['posts'] ?? null;
 
         if (!$posts) {
-            throw new SupermaticsApiException('No posts found');
+            throw new SupermetricsApiException('No posts found');
         }
 
         return $posts;
