@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Api\SupermetricsClient;
 use App\Entities\PostEntity;
+use DateTime;
 
 class PostsApiRepository implements PostsRepository
 {
@@ -25,7 +26,7 @@ class PostsApiRepository implements PostsRepository
                 $post->fromName = $rawPost['from_name'];
                 $post->type = $rawPost['type'];
                 $post->message = $rawPost['message'];
-                $post->createdTime = $rawPost['created_time'];
+                $post->createdTime = DateTime::createFromFormat('Y-m-d\TH:i:sT', $rawPost['created_time']);
 
                 yield $post;
             }
