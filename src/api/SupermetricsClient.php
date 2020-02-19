@@ -15,10 +15,6 @@ class SupermetricsClient
 
     public function getToken(string $clientId, string $email, string $name): string
     {
-        if (empty($clientId) || empty($email) || empty($name)) {
-            throw new SupermaticsApiException('Invalid input. All params are required');
-        }
-
         $response = $this->client->post( 'register', [
             'form_params' => [
                 'client_id' =>$clientId,
@@ -40,9 +36,13 @@ class SupermetricsClient
 
     public function getPosts(int $page = 1)
     {
-//        $this->getClient()->get('posts', [
-//            'sl_token' => '',
-//            'page' => $page
-//        ]);
+        if ($page) {
+
+        }
+
+        $this->getClient()->get('posts', [
+            'sl_token' => '',
+            'page' => $page
+        ]);
     }
 }
