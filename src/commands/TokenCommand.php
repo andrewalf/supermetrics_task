@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use App\Api\Factories\SupermetricsClientFactory;
+use App\Factories\SupermetricsClientFactory;
 use App\Exceptions\SupermaticsApiException;
 
 class TokenCommand implements Command

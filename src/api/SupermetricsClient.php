@@ -20,7 +20,7 @@ class SupermetricsClient
                 'client_id' =>$clientId,
                 'email' => $email,
                 'name' => $name,
-            ]
+            ],
         ]);
 
         $content = json_decode($response->getBody()->getContents(), JSON_UNESCAPED_UNICODE);
@@ -34,15 +34,22 @@ class SupermetricsClient
 
     }
 
-    public function getPosts(int $page = 1)
+    public function getPosts(int $page = 1): iterable
     {
-        if ($page) {
+        $response = $this->client->get('posts', [
+            'query' => [
+                'sl_token' => env('API_TOKEN'),
+                'page' => $page,
+            ],
+        ]);
 
+        $content = json_decode($response->getBody()->getContents(), JSON_UNESCAPED_UNICODE);
+        $posts = $content['data']['posts'] ?? null;
+
+        if (!$posts) {
+            throw new SupermaticsApiException('No posts found');
         }
 
-        $this->getClient()->get('posts', [
-            'sl_token' => '',
-            'page' => $page
-        ]);
+        return $posts;
     }
 }

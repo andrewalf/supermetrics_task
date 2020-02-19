@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Factories;
+namespace App\Factories;
 
 use App\Api\SupermetricsClient;
 use App\Exceptions\SupermaticsApiException;
