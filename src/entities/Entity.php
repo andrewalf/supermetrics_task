@@ -2,7 +2,7 @@
 
 namespace App\Entities;
 
-interface Entity
+abstract class Entity
 {
 
 }

@@ -2,7 +2,7 @@
 
 namespace App\Entities;
 
-class PostEntity implements Entity
+class PostEntity extends Entity
 {
     public string $id;
     public string $fromName;
