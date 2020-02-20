@@ -6,14 +6,14 @@ use App\Entities\Entity;
 
 class StatisticsService
 {
-    function __construct(array $handlers) {
-        array_map([$this, 'addHandler'], $handlers);
-    }
-
     /**
      * @var StatisticsHandler[]
      */
     protected array $handlers = [];
+
+    function __construct(array $handlers) {
+        array_map([$this, 'addHandler'], $handlers);
+    }
 
     public function addHandler(StatisticsHandler $handler): StatisticsService
     {
